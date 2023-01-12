@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="hu-HU"><head>
+    <title>IP cím alapú helymeghatározás</title>
+    <meta charset="utf-8">
+    <meta name="author" content="tele WORX Ltd.">
+    <meta name="description" content="IP cím hozzávetőleges helyének meghatározása. Az IPcim.info szolgáltatás egy folyamatosan frissített adatbázis segítségével határozza meg az IP címek geolokációját.">
+    <meta name="keywords" content="ip cím,geolokáció,IP cím helymeghatározás,IP cím helye,térkép">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+    <base href="http://www.ipcim.info/ip-cim-helyenek-meghatarozasa">
+    <script src="https://partner.googleadservices.com/gampad/cookie.js?domain=www.ipcim.info&amp;callback=_gfp_s_&amp;client=ca-pub-8333955941276946&amp;cookie=ID%3D67516e9e2ee1fd9f-22e8eb093ece0092%3AT%3D1665165646%3ART%3D1665165646%3AS%3DALNI_MajRuZCgZ9ZaLvWQmUALVl2BaNDIQ"></script><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202209290101/show_ads_impl_with_ama_fy2021.js?client=ca-pub-8333955941276946&amp;plah=www.ipcim.info" id="google_shimpl"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+     <script type="text/javascript" src="/static/js/html5shiv.js"></script>
+     <link rel="stylesheet" href="/static/css/style.wide.css" type="text/css">
+    <![endif]-->
+    <script type="text/javascript">
+     <!--
+     $(document).ready(function() {
+      $("#ip").focus();
+      $("#frm").submit(function(event) {
+       event.preventDefault();
+       $('.results').show().html('    <img src="/static/img/loading.gif" width="31" height="31" alt="učitavanje">\n<p>Az adatok betöltése folyamatban...</p>\n');
+       ip = $('#ip').val();
+       $.post('query.php',{ip:ip,fn:'ip'},function(data) {
+        $('.results').html(data);
+       });
+       return false;
+      });
+     });
+     -->
+    </script>
+    
+   <meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="preload" href="https://adservice.google.hu/adsid/integrator.js?domain=www.ipcim.info" as="script"><script type="text/javascript" src="https://adservice.google.hu/adsid/integrator.js?domain=www.ipcim.info"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.ipcim.info" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.ipcim.info"></script></head>
+  <body>
+  
+    <header>
+     <nav>
+      <ul>
+       <li><a href="/">IP cím</a></li>
+       <li><a href="/ip-cim-helyenek-meghatarozasa" class="select">IP cím helymeghatározás</a></li>
+       <li class="nm"><a href="/weboldal-ip-cime">weboldal IP címe</a></li>
+      </ul>
+     </nav>
+    </header>
+    <div id="content">
+     <img width="10" height="10" alt="line" src="/static/img/pixel.png">
+     <h1>IP cím hozzávetőleges helyének a meghatározása</h1>
+     <form action="/ip-cim-helyenek-meghatarozasa" id="frm" method="post">
+      <input type="text" name="ip" id="ip" tabindex="1">
+      <input type="submit" value="IP cím helymeghatározás" tabindex="2">
+     </form>
+     <div class="results" style="display: block;">    <dt>[ IP cím ]
+      </dt><dd><b>188.156.159.165</b>
+      </dd><dt>[ host ]
+      </dt><dd>BC9C9FA5.catv.pool.telekom.hu
+      </dd><dt>[ ország ]
+      </dt><dd>Magyarország
+      </dd><dt>[ terület ]
+      </dt><dd>Hajdu-bihar
+      </dd><dt>[ helység ]
+      </dt><dd>Berettyoujfalu
+      </dd><dt>[ szélesség ]
+      </dt><dd>47.2167
+      </dd><dt>[ hosszúság ]
+      </dt><dd>21.55
+      </dd><dt>[ térkép ]
+      </dt><dd><a href="http://maps.google.hu/maps?q=47.2167,21.55&amp;z=8" target="blank" rel="nofollow">mutasd meg a google térképen</a>
+      </dd><dt>[ helyi idő ]
+      </dt><dd>2022.10.07. 16:59:14
+     
+  </dd></div>
+     <img width="10" height="10" alt="line" src="/static/img/pixel.png">
+     <h2>Hogyan találjuk meg az IP cím pontos helyét</h2>
+     <p>Megfelelő adatbázis használata nélkül lehetetlen az IP cím hozzávetőleges helyének a meghatározása. <a href="http://www.nirsoft.net/countryip/" target="_blank" rel="nofollow">Országonkénti IP cím listát</a> (tulajdonosi adatokkal) könnyen találunk az interneten, de pontosabb (régió vagy város szerinti) helymeghatározáshoz már egy folyamatosan frissített adabázisra van szükségünk. Az IPcim.info szolgáltatás helymeghatározáshoz az egyik legismertebb, Ipinfodb.com által karbantartott adatbázist használja. Amennyiben többet szeretne megtudni erről a témáról, kérjük olvassa el a <a href="http://en.wikipedia.org/wiki/Geolocation" target="_blank" rel="nofollow">wikipédia geolokációs cikkét</a> (angolul), vagy keressen rá a google-ban.</p>
+     <p><br>IP címek helyét tartalmazó adabázisok:</p>
+     <ul class="db">
+      <li><a href="http://www.neustar.biz/" target="_blank" rel="nofollow">Neustar IP Intelligence</a></li>
+      <li><a href="http://www.maxmind.com/" target="_blank" rel="nofollow">GeoIP by MaxMind</a></li>
+      <li><a href="http://www.ip2location.com/" target="_blank" rel="nofollow">IP2Location</a></li>
+      <li><a href="http://www.ipligence.com/" target="_blank" rel="nofollow">IPligence</a></li>
+     </ul>
+    </div>
+    <div id="sidebar">
+     <dl>
+      <dt>TIP:
+      </dt><dd>amenniben csak az IP címre kíváncsi, látogasson el a <a href="/ip">www.ipcim.info/ip</a> oldalra
+     </dd></dl>
+     
+    </div>
+    <footer>
+     <p><a href="http://www.ugyfelkozpont.com/kapcsolat" title="Lépjen velünk kapcsolatba" target="_blank">Kapcsolat</a> | <a href="http://www.ugyfelkozpont.com/iranyelvek/adatvedelem" title="Adatvédelmi irányelvek" target="_blank" rel="nofollow">Adatvédelem</a> | <a href="http://www.ugyfelkozpont.com/iranyelvek/feltetelek" title="Általános Szerződési Feltételek" target="_blank" rel="nofollow">Feltételek</a></p>
+     <a>. Minden jog fenntartva.</p>
+    </footer>
+   
